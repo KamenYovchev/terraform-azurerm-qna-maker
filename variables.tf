@@ -8,6 +8,10 @@ variable "name" {}
 #   description = "The language code to use when naming the KB (EN, FR)."
 # }
 
+variable "service_account_location" {
+  type = string
+  default = "westus"
+}
 
 variable "resource_group_name" {}
 

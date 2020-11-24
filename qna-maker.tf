@@ -73,7 +73,7 @@ resource "azurerm_app_service" "qna-maker-svc" {
 //Taint does not tear this down but destroying the services will
 resource "azurerm_cognitive_account" "qna-maker-account" {
   name                = "${var.name}-qna-account"
-  location            = var.location
+  location            = var.service_account_location
   resource_group_name = var.resource_group_name
   kind                = "QnAMaker"
   sku_name = var.account_sku
