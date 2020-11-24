@@ -82,11 +82,3 @@ resource "azurerm_cognitive_account" "qna-maker-account" {
       azurerm_app_service.qna-maker-svc
   ]
 }
-
-output "app_srv" {
-  value = azurerm_app_service.qna-maker-svc
-}
-
-output "plan_id" {
-  value = var.plan_id == "" ? azurerm_app_service_plan.qna-maker[0].id : var.plan_id
-}
