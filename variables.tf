@@ -13,13 +13,9 @@ variable "resource_group_name" {}
 
 variable "location" {}
 
-variable "tier" {
-   type = map(string)
-}
+variable "tier" {}
 
-variable "size" {
-   type = map(string)
-}
+variable "size" {}
 
 variable "search_sku" {
   default = "standard"
