@@ -35,3 +35,9 @@ variable "plan_id" {
   default = ""
   description = "The app service plan to use.  If none is passed it will create one"
 }
+
+locals {
+
+env_name = lower(terraform.workspace)
+
+}
