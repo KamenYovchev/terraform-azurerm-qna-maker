@@ -1,6 +1,3 @@
-variable "tags" {
-  type = string
-}
 variable "name" {}
 
 # variable "KBFileName" {

@@ -10,7 +10,7 @@ resource "azurerm_app_service_plan" "qna-maker" {
     size = var.size
 
   }
-  tags = var.tags
+
 }
 
 resource "azurerm_application_insights" "qna-maker-ai" {
@@ -18,7 +18,7 @@ resource "azurerm_application_insights" "qna-maker-ai" {
   location            = var.location
   resource_group_name = var.resource_group_name
   application_type    = "web"
-  tags = var.tags
+
 }
 
 resource "random_string" "random" {
@@ -33,7 +33,7 @@ resource "azurerm_search_service" "qna-maker-search" {
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = var.search_sku
-  tags = var.tags
+
 }
 
 //Does not like underscores in the name
@@ -67,7 +67,6 @@ resource "azurerm_app_service" "qna-maker-svc" {
       azurerm_app_service_plan.qna-maker,
       azurerm_search_service.qna-maker-search
   ]
-  tags = var.tags
 }
 
 //Looks like ARM has the ability to specify a custom domain but not here so it will be https://westus.api.cognitive.microsoft.com/qnamaker/v4.0
@@ -82,7 +81,6 @@ resource "azurerm_cognitive_account" "qna-maker-account" {
   depends_on = [
       azurerm_app_service.qna-maker-svc
   ]
-  tags = var.tags
 }
 
 output "app_srv" {
