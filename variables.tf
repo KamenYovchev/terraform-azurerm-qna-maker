@@ -1,4 +1,6 @@
-variable "tags" {}
+variable "tags" {
+  type = string
+}
 variable "name" {}
 
 # variable "KBFileName" {
@@ -14,9 +16,13 @@ variable "resource_group_name" {}
 
 variable "location" {}
 
-variable "tier" {}
+variable "tier" {
+   type = map(string)
+}
 
-variable "size" {}
+variable "size" {
+   type = map(string)
+}
 
 variable "search_sku" {
   default = "standard"
