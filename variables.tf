@@ -13,7 +13,7 @@ variable "service_account_location" {
   default = "westus"
 }
 
-variable "environment" {}
+
 variable "resource_group_name" {}
 
 variable "location" {}
