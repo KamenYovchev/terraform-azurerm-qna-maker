@@ -29,7 +29,7 @@ resource "random_string" "random" {
 }
 
 resource "azurerm_search_service" "qna-maker-search" {
-  name                = "${lower(replace(var.name,"/-*_*/",""))}-qna-ss-svc${random_string.random.result}"
+  name                = "${lower(replace(var.name,"/-*_*/",""))}-qna-ss-svc${random_string.random.result}-${local.env_name}"
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = var.search_sku
@@ -38,7 +38,7 @@ resource "azurerm_search_service" "qna-maker-search" {
 
 //Does not like underscores in the name
 resource "azurerm_app_service" "qna-maker-svc" {
-  name                = "${var.name}-qna-app-svc-${var.environment}"
+  name                = "${var.name}-qna-app-svc-${local.env_name}"
   location            = var.location
   resource_group_name = var.resource_group_name
   app_service_plan_id = var.plan_id == "" ? azurerm_app_service_plan.qna-maker[0].id : var.plan_id
