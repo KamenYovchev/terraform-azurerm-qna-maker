@@ -38,7 +38,7 @@ resource "azurerm_search_service" "qna-maker-search" {
 
 //Does not like underscores in the name
 resource "azurerm_app_service" "qna-maker-svc" {
-  name                = "${var.name}-qna-app-svc-${local.env_name}"
+  name                = "${var.name}-qna-app-svc-${var.environment}"
   location            = var.location
   resource_group_name = var.resource_group_name
   app_service_plan_id = var.plan_id == "" ? azurerm_app_service_plan.qna-maker[0].id : var.plan_id
